@@ -1,0 +1,50 @@
+{
+  "repo_root": "/mnt/g/project/TLS_agent",
+  "out_root": "/mnt/g/project/TLS_agent_brief",
+  "entry_scripts": [
+    "scripts/4_Train_Mask2Former_Morph.sh",
+    "scripts/5-4_Train_best_Morph_config.sh",
+    "scripts/7_TLS_agent_toolkit.sh"
+  ],
+  "copied_dirs": [
+    "scripts",
+    "TLS-Configs",
+    "tools",
+    "mmseg",
+    "projects",
+    "tls_toolkit",
+    "configs"
+  ],
+  "placeholders": [
+    "datasets",
+    "checkpoints",
+    "outputs",
+    "logs"
+  ],
+  "missing_files": [
+    {
+      "path": "$DATA_ROOT/CRC/279912.svs",
+      "reason": "example WSI input for toolkit"
+    },
+    {
+      "path": "$CHECKPOINT_ROOT/best_mFscore_iter_10000.pth",
+      "reason": "toolkit checkpoint"
+    },
+    {
+      "path": "$CHECKPOINT_ROOT/best_mFscore_iter_19000.pth",
+      "reason": "pretrained checkpoint used by configs"
+    },
+    {
+      "path": "$DATA_ROOT/train/images, $DATA_ROOT/train/masks, $DATA_ROOT/val/images, $DATA_ROOT/val/masks, $DATA_ROOT/test/images, $DATA_ROOT/test/masks",
+      "reason": "dataset structure expected by configs"
+    },
+    {
+      "path": "$DATA_ROOT/train_gc/images, $DATA_ROOT/train_gc/masks, $DATA_ROOT/train_gc/morph",
+      "reason": "morph dataset structure expected by configs"
+    }
+  ],
+  "notes": [
+    "Paths are now parameterized via env vars in scripts/configs.",
+    "Set PROJECT_ROOT/DATA_ROOT/OUTPUT_ROOT/CHECKPOINT_ROOT as needed."
+  ]
+}
